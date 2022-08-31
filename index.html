@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <img src="https://cdn-www.comingsoon.net/assets/uploads/2022/04/infinity-war.jpg"  -->
+    <div>
+        <form id="addForm">
+            <input id="name" type="text" placeholder="Enter Movie Name">
+            <select id="select">
+                <option value="Action">Action</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+            </select>
+            <input id="link" type="text" placeholder="Enter Img Link">
+            <button type="submit" id="submitbtn">add</button>
+        </form>
+    </div>
+    <div id="container"></div>
+    <script>
+        let object = {
+            imgLink:"https://cdn-www.comingsoon.net/assets/uploads/2022/04/infinity-war.jpg",
+            head1:"IRON MAN",
+            head2:"Avenger",
+            para:"Died fighting with Thanos",
+        }
+    
+        let btn = document.getElementById('submitbtn')
+        btn.addEventListener('click',(event)=>{
+            add(event)
+        })
+
+
+    function add(event){
+        event.preventDefault()
+        let link = document.getElementById('link').value
+        let name = document.getElementById('name').value
+        let category = document.getElementById('select').value
+     
+        var object = {
+          imageLink:link,
+          head1:name,
+          head2:category, 
+        }
+    }
+    
+    
+    
+        const container = document.getElementById('container');
+    
+        let div = document.createElement('div');
+        let h1 = document.createElement('h1');
+        let h2 = document.createElement('h2');
+        let img = document.createElement('img');
+        let p = document.createElement('p');
+    
+        h1.textContent = object.head1
+        h2.textContent = object.head2
+        p.textContent = object.para
+        img.setAttribute('src', object.imgLink)
+        div.append(h1,img,h2,p)
+        container.append(div);
+    </script>
+</body>
+</html>
